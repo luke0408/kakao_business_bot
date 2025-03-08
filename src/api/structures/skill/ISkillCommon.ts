@@ -4,7 +4,7 @@ export namespace ISkillCommon {
   /**
    * Skill을 위한 Link
    *
-   * `ISkillCommon.ILink`은 PC, Modile, Web 환경에 대한 외부 Link 정보를 담습니다.
+   * `ISkillCommon.ILink`은 PC, Mobile, Web 환경에 대한 외부 Link 정보를 담습니다.
    *
    * Link 적용 우선순위:
    * - PC 환경: pc < web
