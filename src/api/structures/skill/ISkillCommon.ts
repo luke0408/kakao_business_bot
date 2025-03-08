@@ -93,4 +93,9 @@ export namespace IButtonAction {
     phoneNumber: (string & IPhoneNumber) | null;
     extra: Map<string, any> | null;
   }
+
+  export interface IWebLinkButton extends IButtonAction {
+    action: "webLink";
+    webLinkUrl: string & tags.Format<"url">;
+  }
 }
