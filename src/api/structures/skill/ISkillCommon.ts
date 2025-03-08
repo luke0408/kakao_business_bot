@@ -91,6 +91,7 @@ export namespace IButtonAction {
     webLinkUrl: (string & tags.Format<"url">) | null;
     messageText: string | null;
     phoneNumber: (string & IPhoneNumber) | null;
+    blockId: string | null;
     extra: Map<string, any> | null;
   }
 
