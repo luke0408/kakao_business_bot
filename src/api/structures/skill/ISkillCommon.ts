@@ -85,6 +85,17 @@ export namespace IButtonAction {
     validate: `/^\+?[1-9]\d{1,14}$/.test($input)`;
   }>;
 
+  /**
+   * Button이 가질 수 있는 Action Type
+   *
+   * Types:
+   * - webLink: {@link IButtonAction.IWebLinkButton}
+   * - message: {@link IButtonAction.IMessageButton}
+   * - phone: {@link IButtonAction.IPhoneButton}
+   * - block: {@link IButtonAction.IBlockButton}
+   * - share: {@link IButtonAction.IShareButton}
+   * - operator: {@link IButtonAction.IOperatorButton}
+   */
   export type IActions =
     | "webLink"
     | "message"
