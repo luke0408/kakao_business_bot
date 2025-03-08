@@ -115,4 +115,12 @@ export namespace IButtonAction {
     messageText: string;
     blockId: string;
   }
+
+  export interface IShareButton extends IButtonAction {
+    action: "share";
+  }
+
+  export interface IOperatorButton extends IButtonAction {
+    action: "operator";
+  }
 }
