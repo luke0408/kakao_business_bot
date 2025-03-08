@@ -68,3 +68,29 @@ export namespace ISkillCommon {
     fixedRatio: boolean | null;
   }
 }
+
+export namespace IButtonAction {
+  export type IPhoneNumber = tags.TagBase<{
+    kind: "phoneNumber";
+    target: "string";
+    value: undefined;
+    validate: `/^\+?[1-9]\d{1,14}$/.test($input)`;
+  }>;
+
+  export type IActions =
+    | "webLink"
+    | "message"
+    | "phone"
+    | "block"
+    | "share"
+    | "operator";
+
+  export interface IButtonAction {
+    label: string & tags.MaxLength<14>;
+    action: IActions;
+    webLinkUrl: (string & tags.Format<"url">) | null;
+    messageText: string | null;
+    phoneNumber: (string & IPhoneNumber) | null;
+    extra: Map<string, any> | null;
+  }
+}
