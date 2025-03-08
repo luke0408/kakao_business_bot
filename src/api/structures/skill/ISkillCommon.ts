@@ -98,4 +98,9 @@ export namespace IButtonAction {
     action: "webLink";
     webLinkUrl: string & tags.Format<"url">;
   }
+
+  export interface IMessageButton extends IButtonAction {
+    action: "message";
+    messageText: string;
+  }
 }
