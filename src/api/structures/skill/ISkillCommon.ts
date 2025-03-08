@@ -90,7 +90,7 @@ export namespace IButtonAction {
     action: IActions;
     webLinkUrl: (string & tags.Format<"url">) | null;
     messageText: string | null;
-    phoneNumber: (string & IPhoneNumber) | null;
+    phoneNumber: IPhoneNumber | null;
     blockId: string | null;
     extra: Map<string, any> | null;
   }
@@ -103,5 +103,10 @@ export namespace IButtonAction {
   export interface IMessageButton extends IButtonAction {
     action: "message";
     messageText: string;
+  }
+
+  export interface IPhoneButton extends IButtonAction {
+    action: "phone";
+    phoneNumber: IPhoneNumber;
   }
 }
