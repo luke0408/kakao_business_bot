@@ -93,7 +93,7 @@ export namespace IButtonAction {
     | "share"
     | "operator";
 
-  export interface IButtonAction {
+  export interface IButtonTemp {
     label: string & tags.MaxLength<14>;
     action: IActions;
     webLinkUrl: (string & tags.Format<"url">) | null;
@@ -103,32 +103,32 @@ export namespace IButtonAction {
     extra: Map<string, any> | null;
   }
 
-  export interface IWebLinkButton extends IButtonAction {
+  export interface IWebLinkButton extends IButtonTemp {
     action: "webLink";
     webLinkUrl: string & tags.Format<"url">;
   }
 
-  export interface IMessageButton extends IButtonAction {
+  export interface IMessageButton extends IButtonTemp {
     action: "message";
     messageText: string;
   }
 
-  export interface IPhoneButton extends IButtonAction {
+  export interface IPhoneButton extends IButtonTemp {
     action: "phone";
     phoneNumber: IPhoneNumber;
   }
 
-  export interface IBlockButton extends IButtonAction {
+  export interface IBlockButton extends IButtonTemp {
     action: "block";
     messageText: string;
     blockId: string;
   }
 
-  export interface IShareButton extends IButtonAction {
+  export interface IShareButton extends IButtonTemp {
     action: "share";
   }
 
-  export interface IOperatorButton extends IButtonAction {
+  export interface IOperatorButton extends IButtonTemp {
     action: "operator";
   }
 }
