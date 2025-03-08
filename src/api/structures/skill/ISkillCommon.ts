@@ -109,4 +109,10 @@ export namespace IButtonAction {
     action: "phone";
     phoneNumber: IPhoneNumber;
   }
+
+  export interface IBlockButton extends IButtonAction {
+    action: "block";
+    messageText: string;
+    blockId: string;
+  }
 }
