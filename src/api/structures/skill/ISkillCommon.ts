@@ -67,6 +67,14 @@ export namespace ISkillCommon {
      */
     fixedRatio: boolean | null;
   }
+
+  export type IButton =
+    | IButtonAction.IWebLinkButton
+    | IButtonAction.IMessageButton
+    | IButtonAction.IPhoneButton
+    | IButtonAction.IBlockButton
+    | IButtonAction.IShareButton
+    | IButtonAction.IOperatorButton;
 }
 
 export namespace IButtonAction {
