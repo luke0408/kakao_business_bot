@@ -109,6 +109,14 @@ export namespace ISkillCommon {
     description: string & INewLineLmit<2>;
     thumbnail: ISkillCommon.IThumbnail;
   }
+
+  /**
+   * chat bot profile
+   */
+  export interface IProfile {
+    nickname: string;
+    imageUrl: (string & tags.Format<"url">) | null;
+  }
 }
 
 export namespace IButtonAction {
