@@ -68,6 +68,9 @@ export namespace ISkillCommon {
     fixedRatio: boolean | null;
   }
 
+  /**
+   * Button의 정보({@link IButtonAction.IButtonTemp})를 정의합니다.
+   */
   export type IButton =
     | IButtonAction.IWebLinkButton
     | IButtonAction.IMessageButton
@@ -117,6 +120,9 @@ export namespace IButtonAction {
     | "share"
     | "operator";
 
+  /**
+   * {@link IButton}이 가질 수 있는 데이터를 정의합니다.
+   */
   export interface IButtonTemp {
     label: string & tags.MaxLength<14>;
     action: IActions;
