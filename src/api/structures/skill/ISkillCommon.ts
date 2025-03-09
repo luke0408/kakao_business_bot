@@ -67,4 +67,98 @@ export namespace ISkillCommon {
      */
     fixedRatio: boolean | null;
   }
+
+  /**
+   * Button의 정보({@link IButtonAction.IButtonTemp})를 정의합니다.
+   */
+  export type IButton =
+    | IButtonAction.IWebLinkButton
+    | IButtonAction.IMessageButton
+    | IButtonAction.IPhoneButton
+    | IButtonAction.IBlockButton
+    | IButtonAction.IShareButton
+    | IButtonAction.IOperatorButton;
+}
+
+export namespace IButtonAction {
+  /**
+   * PhoneNumber의 pettern을 정의한 validation type
+   *
+   * 국제 번호 규격으로 구현되어있습니다.
+   *
+   * @example
+   *  ```ts
+   *  const a: IPhoneNumber = "+1 (123) 456-7890";  // pass
+   *  const b: IPhoneNumber = "+82 10-1234-5678";   // pass
+   *  const c: IPhoneNumber = "010-1234-5678";      // pass
+   *  const d: IPhoneNumber = "abcdefg";           // error
+   *  ```
+   */
+  export type IPhoneNumber = tags.TagBase<{
+    kind: "phoneNumber";
+    target: "string";
+    value: undefined;
+    validate: `/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test($input)`;
+  }>;
+
+  /**
+   * Button이 가질 수 있는 Action Type
+   *
+   * Types:
+   * - webLink: {@link IButtonAction.IWebLinkButton}
+   * - message: {@link IButtonAction.IMessageButton}
+   * - phone: {@link IButtonAction.IPhoneButton}
+   * - block: {@link IButtonAction.IBlockButton}
+   * - share: {@link IButtonAction.IShareButton}
+   * - operator: {@link IButtonAction.IOperatorButton}
+   */
+  export type IActions =
+    | "webLink"
+    | "message"
+    | "phone"
+    | "block"
+    | "share"
+    | "operator";
+
+  /**
+   * {@link IButton}이 가질 수 있는 데이터를 정의합니다.
+   */
+  export interface IButtonTemp {
+    label: string & tags.MaxLength<14>;
+    action: IActions;
+    webLinkUrl: (string & tags.Format<"url">) | null;
+    messageText: string | null;
+    phoneNumber: IPhoneNumber | null;
+    blockId: string | null;
+    extra: Map<string, any> | null;
+  }
+
+  export interface IWebLinkButton extends IButtonTemp {
+    action: "webLink";
+    webLinkUrl: string & tags.Format<"url">;
+  }
+
+  export interface IMessageButton extends IButtonTemp {
+    action: "message";
+    messageText: string;
+  }
+
+  export interface IPhoneButton extends IButtonTemp {
+    action: "phone";
+    phoneNumber: IPhoneNumber;
+  }
+
+  export interface IBlockButton extends IButtonTemp {
+    action: "block";
+    messageText: string;
+    blockId: string;
+  }
+
+  export interface IShareButton extends IButtonTemp {
+    action: "share";
+  }
+
+  export interface IOperatorButton extends IButtonTemp {
+    action: "operator";
+  }
 }
