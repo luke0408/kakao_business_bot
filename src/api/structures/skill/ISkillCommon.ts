@@ -107,7 +107,7 @@ export namespace ISkillCommon {
   export interface ICarouselHeader {
     title: string & INewLineLmit<1>;
     description: string & INewLineLmit<2>;
-    thumbanil: ISkillCommon.IThumbnail;
+    thumbnail: ISkillCommon.IThumbnail;
   }
 }
 
@@ -197,7 +197,7 @@ export type IPhoneNumber = tags.TagBase<{
 /**
  * Represents a tagged type for validating a string based on the number of newline characters.
  *
- * @template Value - The maxinum number of newline characters required in the string.
+ * @template Value - The maximum number of newline characters required in the string.
  */
 export type INewLineLmit<Value extends number> = tags.TagBase<{
   kind: "newLineLmit";
