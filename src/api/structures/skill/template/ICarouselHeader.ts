@@ -1,4 +1,4 @@
-import { INewLineLmit } from "./ISkillCommon";
+import { INewLineLmit } from "./INewLineLmit";
 import { IThumbnail } from "./IThumbnail";
 
 /**

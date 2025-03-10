@@ -19,18 +19,3 @@ export type IPhoneNumber = tags.TagBase<{
   value: undefined;
   validate: `/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test($input)`;
 }>;
-
-/**
- * Represents a tagged type for validating a string based on the number of newline characters.
- *
- * @template Value - The maximum number of newline characters required in the string.
- */
-export type INewLineLmit<Value extends number> = tags.TagBase<{
-  kind: "newLineLmit";
-  target: "string";
-  value: Value;
-  validate: `(() => {
-      const regex = /(?:.*\n){${Value},}/
-      return !regex.test($input)
-    })()`;
-}>;

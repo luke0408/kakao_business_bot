@@ -1,6 +1,6 @@
 import { tags } from "typia";
 
-import { IPhoneNumber } from "./ISkillCommon";
+import { IPhoneNumber } from "./IPhoneNumber";
 
 /**
  * Button의 정보({@link IButton.IButtonTemp})를 정의합니다.
