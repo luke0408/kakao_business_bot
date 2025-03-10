@@ -79,4 +79,62 @@ export namespace ISkillPayload {
       isFriend: boolean | null;
     }
   }
+
+  /**
+   * 대화 흐름에 대한 정보를 가지는 flow type
+   *
+   * trigger:
+   * - {@link IFlow.ITrigger} 로 정의됨
+   * - 사용자 발화를 생성시킨 트리거 정보를 가짐
+   *
+   * lastBlock:
+   * - {@link ISkillPayload.IBlock} 로 정의 됨
+   * - 바로 직전에 사용된 블록 정보를 가짐
+   */
+  export interface IFlow<
+    Trigger extends IFlow.ITrigger = IFlow.ITrigger,
+    Block extends ISkillPayload.IBlock = ISkillPayload.IBlock,
+  > {
+    trigger: Trigger;
+    lastBlock: Block;
+  }
+
+  export namespace IFlow {
+    /**
+     * trigger types
+     *
+     * 구분 | Trigger Type | Output Type | Action Type
+     * --- | --- | --- | ---
+     * 발화 입력 | TEXT_INPUT | INPUT | TEXT
+     * 일반 카드의 버튼-메시지 전송 | CARD_BUTTON_MESSAGE | CARD_BUTTON | MESSAGE
+     * 일반 카드의 버튼-블록 연결 | CARD_BUTTON_BLOCK | CARD_BUTTON | BLOCK
+     * 리스트 카드의 버튼-블록 연결 | LIST_ITEM_MESSAGE | LIST_ITEM | MESSAGE
+     * 리스트 카드의 버튼-메시지 전송 | LIST_ITEM_BLOCK | LIST_ITEM | BLOCK
+     * 리스트 메뉴의 버튼-블록 연결 | LISTMENU_MESSAGE | LISTMENU | MESSAGE
+     * 리스트 메뉴의 버튼-블록 전송 | LISTMENU_BLOCK | LISTMENU | BLOCK
+     * 바로 연결의 버튼-블록 연결 | QUICKREPLY_BUTTON_MESSAGE | QUICKREPLY | MESSAGE
+     * 바로 연결의 버튼-메시지 전송 | QUICKREPLY_BUTTON_BLOCK | QUICKREPLY | BLOCK
+     */
+    export type ITriggerType =
+      | "TEXT_INPUT"
+      | "CARD_BUTTON_MESSAGE"
+      | "CARD_BUTTON_BLOCK"
+      | "LIST_ITEM_MESSAGE"
+      | "LIST_ITEM_BLOCK"
+      | "LISTMENU_MESSAGE"
+      | "LISTMENU_BLOCK"
+      | "QUICKREPLY_BUTTON_MESSAGE"
+      | "QUICKREPLY_BUTTON_BLOCK";
+
+    /**
+     * trigger 정보
+     *
+     * - type: {@link ITriggerType}
+     * - referrerBlock: {@link ISkillPayload.IBlock}
+     */
+    export interface ITrigger {
+      type: ITriggerType;
+      referrerBlock: ISkillPayload.IBlock;
+    }
+  }
 }
