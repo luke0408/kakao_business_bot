@@ -36,4 +36,27 @@ export namespace ISkillPayload {
       imageUrl: string & tags.Format<"url">;
     }
   }
+
+  export namespace IUser {
+    /**
+     * user property
+     *
+     * plusfriendUserKey:
+     * - 카카오톡 채널에서 제공하는 사용자 식별키
+     * - {@link ISkillPayload.IUser.id}와 마찬가지로 사용자를 식별하는데 사용됨
+     *
+     * appUserId:
+     * - 봇 설정에서 앱 키를 설정한 경우에만 제공되는 사용자 정보
+     * - 앱 키를 설정하기 위해서는 카카오톡 디벨로퍼스 사이트에서 앱을 생성해야함
+     *
+     * isFriend:
+     * - 사용자가 봇과 열결된 카카오톡 채널을 추가한 경우 제공되는 식별키
+     * - 채널을 친구로 추가한 경우에만 `true`
+     */
+    export interface IProperty {
+      plusfriendUserKey: string;
+      appUserId: string | null;
+      isFriend: boolean | null;
+    }
+  }
 }
