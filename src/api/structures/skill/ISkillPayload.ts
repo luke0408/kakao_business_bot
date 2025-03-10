@@ -9,6 +9,21 @@ export namespace ISkillPayload {
     name: string;
   }
 
+  /**
+   * 사용자의 발화 정보를 담는 {@link ISkillPayload.IBlock}의 한 종류
+   *
+   * @property extra의 하위 정보를 통해 추가적인 정보를 전달할 수 있음
+   */
+  export interface IIntent<
+    Knowledge extends IIntent.IKnowledge = IIntent.IKnowledge,
+  > {
+    extra: {
+      knowledges: {
+        matheadKnowledges: Knowledge[];
+      } | null;
+    } | null;
+  }
+
   export namespace IIntent {
     /**
      * 지식 정보
