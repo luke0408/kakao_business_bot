@@ -33,14 +33,6 @@ export namespace ISkillCommon {
     description: string & INewLineLmit<2>;
     thumbnail: IThumbnail;
   }
-
-  /**
-   * chat bot profile
-   */
-  export interface IProfile {
-    nickname: string;
-    imageUrl: (string & tags.Format<"url">) | null;
-  }
 }
 
 /**
