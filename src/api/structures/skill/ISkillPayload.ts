@@ -130,7 +130,7 @@ export namespace ISkillPayload {
      * trigger 정보
      *
      * - type: {@link ITriggerType}
-     * - referrer: {@link ISkillPayload.IBlock}
+     * - referrerBlock: {@link ISkillPayload.IBlock}
      */
     export interface ITrigger {
       type: ITriggerType;
