@@ -32,7 +32,7 @@ export namespace ISkillPayload {
       answer: string;
       question: string;
       categories: string;
-      langingUrl: string & tags.Format<"url">;
+      landingUrl: string & tags.Format<"url">;
       imageUrl: string & tags.Format<"url">;
     }
   }
