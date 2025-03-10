@@ -137,4 +137,12 @@ export namespace ISkillPayload {
       referrerBlock: ISkillPayload.IBlock;
     }
   }
+
+  export namespace IAction {
+    export interface IDetailParam {
+      origin: string;
+      value: string;
+      groupName: string;
+    }
+  }
 }
