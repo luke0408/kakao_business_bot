@@ -37,6 +37,26 @@ export namespace ISkillPayload {
     }
   }
 
+  /**
+   * bot User
+   *
+   * id:
+   * - 사용자를 식별할 수 있는 Key
+   * - 특정한 봇에서 사용자를 식별할 때 사용가능
+   * - 같은 사용자더라도, 봇이 다르면 다른 id 발급
+   *
+   * type:
+   * - 현재는 "botUserKey" type만 지원
+   *
+   * properties:
+   * - 추가적으로 제공되는 사용자 속성 정보
+   */
+  export interface IUser<Property extends IUser.IProperty = IUser.IProperty> {
+    id: string & tags.MaxLength<70>;
+    type: "botUserKey";
+    properties: Property | null;
+  }
+
   export namespace IUser {
     /**
      * user property
