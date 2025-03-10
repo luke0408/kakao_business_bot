@@ -1,7 +1,5 @@
 import { tags } from "typia";
 
-import { IButtonAction } from "./IButtonAction";
-
 export namespace ISkillCommon {
   /**
    * Skill Link
@@ -69,17 +67,6 @@ export namespace ISkillCommon {
      */
     fixedRatio: boolean | null;
   }
-
-  /**
-   * Button의 정보({@link IButtonAction.IButtonTemp})를 정의합니다.
-   */
-  export type IButton =
-    | IButtonAction.IWebLinkButton
-    | IButtonAction.IMessageButton
-    | IButtonAction.IPhoneButton
-    | IButtonAction.IBlockButton
-    | IButtonAction.IShareButton
-    | IButtonAction.IOperatorButton;
 
   /**
    * Button Layout 정보를 정의합니다.

@@ -2,17 +2,28 @@ import { tags } from "typia";
 
 import { IPhoneNumber } from "./ISkillCommon";
 
-export namespace IButtonAction {
+/**
+ * Button의 정보({@link IButton.IButtonTemp})를 정의합니다.
+ */
+export type IButton =
+  | IButton.IWebLinkButton
+  | IButton.IMessageButton
+  | IButton.IPhoneButton
+  | IButton.IBlockButton
+  | IButton.IShareButton
+  | IButton.IOperatorButton;
+
+export namespace IButton {
   /**
    * Button이 가질 수 있는 Action Type
    *
    * Types:
-   * - webLink: {@link IButtonAction.IWebLinkButton}
-   * - message: {@link IButtonAction.IMessageButton}
-   * - phone: {@link IButtonAction.IPhoneButton}
-   * - block: {@link IButtonAction.IBlockButton}
-   * - share: {@link IButtonAction.IShareButton}
-   * - operator: {@link IButtonAction.IOperatorButton}
+   * - webLink: {@link IButton.IWebLinkButton}
+   * - message: {@link IButton.IMessageButton}
+   * - phone: {@link IButton.IPhoneButton}
+   * - block: {@link IButton.IBlockButton}
+   * - share: {@link IButton.IShareButton}
+   * - operator: {@link IButton.IOperatorButton}
    */
   export type IActions =
     | "webLink"
