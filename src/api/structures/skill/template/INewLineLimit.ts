@@ -5,7 +5,7 @@ import { tags } from "typia";
  *
  * @template Value - The maximum number of newline characters required in the string.
  */
-export type INewLineLmit<Value extends number> = tags.TagBase<{
+export type INewLineLimit<Value extends number> = tags.TagBase<{
   kind: "newLineLmit";
   target: "string";
   value: Value;
