@@ -3,15 +3,6 @@ import { tags } from "typia";
 import { IThumbnail } from "./IThumbnail";
 
 export namespace ISkillCommon {
-  /**
-   * Button Layout 정보를 정의합니다.
-   *
-   * - Vertical: 최대 3개의 버튼을 세로로 배치
-   * - Horizontal: 최대 2개의 버튼을 가로로 배치
-   */
-  export interface IButtonLayout {
-    buttonLayout: "vertical" | "horizontal";
-  }
 
   /**
    * 말풍선에 전달하기 아이콘 노출 여부를 정합니다.
