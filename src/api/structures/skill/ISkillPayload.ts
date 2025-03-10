@@ -80,6 +80,25 @@ export namespace ISkillPayload {
     }
   }
 
+  /**
+   * 대화 흐름에 대한 정보를 가지는 flow type
+   *
+   * trigger:
+   * - {@link IFlow.ITrigger} 로 정의됨
+   * - 사용자 발화를 생성시킨 트리거 정보를 가짐
+   *
+   * lastBlock:
+   * - {@link ISkillPayload.IBlock} 로 정의 됨
+   * - 바로 직전에 사용된 블록 정보를 가짐
+   */
+  export interface IFlow<
+    Trigger extends IFlow.ITrigger = IFlow.ITrigger,
+    Block extends ISkillPayload.IBlock = ISkillPayload.IBlock,
+  > {
+    trigger: Trigger;
+    lastBlock: Block;
+  }
+
   export namespace IFlow {
     /**
      * trigger types
