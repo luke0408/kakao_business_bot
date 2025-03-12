@@ -138,6 +138,19 @@ export namespace ISkillPayload {
     }
   }
 
+  export interface IAction<
+    P extends Record<string, string> = Record<string, string>,
+    D extends { [K in keyof P]: IAction.IDetailParam } = {
+      [K in keyof P]: IAction.IDetailParam;
+    },
+  > {
+    id: string;
+    name: string;
+    params: P | null;
+    detailParams: D | null;
+    clientExtra: Map<string, any> | null;
+  }
+
   export namespace IAction {
     export interface IDetailParam {
       origin: string;
