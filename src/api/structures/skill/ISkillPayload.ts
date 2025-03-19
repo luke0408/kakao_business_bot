@@ -1,5 +1,17 @@
 import { tags } from "typia";
 
+/**
+ * Main payload structure for skill interactions
+ * Contains bot information, intent details, action data, and user request context
+ */
+export interface ISkillPayload {
+  bot: ISkillPayload.IBot;
+  intent: ISkillPayload.IIntent;
+  action: ISkillPayload.IAction;
+  userRequest: ISkillPayload.IUserRequest;
+  contexts: [];
+}
+
 export namespace ISkillPayload {
   /**
    * 사용자의 발화 단위를 정하는 block 정보
