@@ -1,5 +1,12 @@
 import { tags } from "typia";
 
+export interface ISkillPayload {
+  bot: ISkillPayload.IBot;
+  intent: ISkillPayload.IIntent;
+  action: ISkillPayload.IAction;
+  userRequest: ISkillPayload.IUserRequest;
+}
+
 export namespace ISkillPayload {
   /**
    * 사용자의 발화 단위를 정하는 block 정보
