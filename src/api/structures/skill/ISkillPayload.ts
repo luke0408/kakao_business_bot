@@ -148,7 +148,7 @@ export namespace ISkillPayload {
     name: string;
     params: P | null;
     detailParams: D | null;
-    clientExtra: Map<string, any> | null;
+    clientExtra: Record<string, any> | null;
   }
 
   export namespace IAction {
