@@ -180,4 +180,12 @@ export namespace ISkillPayload {
       groupName: string;
     }
   }
+
+  /**
+   * Bot에 대한 메타 데이터
+   */
+  export interface IBot {
+    id: string;
+    name: string;
+  }
 }
