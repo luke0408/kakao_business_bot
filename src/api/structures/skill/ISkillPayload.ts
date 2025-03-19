@@ -138,6 +138,28 @@ export namespace ISkillPayload {
     }
   }
 
+  /**
+   * Action을 정의 하기 위한 타입
+   *
+   * 다음과 같은 타입 추론 도우미 함수를 이용해야 정확한 타입 추론 가능
+   * @example
+   * ```ts
+   * function create<
+   *  P extends Record<string, string> = Record<string, string>,
+   *  D extends { [K in keyof P]: IAction.IDetailParam } = {
+   *    [K in keyof P]: IAction.IDetailParam;
+   *  },
+   * >(action: {
+   *  id: string;
+   *  name: string;
+   *  params: P;
+   *  detailParams: D;
+   *  clientExtra: Record<string, any> | null;
+   * }): IAction<P, D> {
+   *  return action;
+   * }
+   * ```
+   */
   export interface IAction<
     P extends Record<string, string> = Record<string, string>,
     D extends { [K in keyof P]: IAction.IDetailParam } = {
