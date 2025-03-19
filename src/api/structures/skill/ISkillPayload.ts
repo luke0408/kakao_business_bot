@@ -188,4 +188,34 @@ export namespace ISkillPayload {
     id: string;
     name: string;
   }
+
+  /**
+   * User Request
+   *
+   * 발화 내용 중 유저의 직접적인 요청 데이터
+   *
+   * timezone:
+   * - 사용자의 시간대
+   * - ex) Asia/Seoul
+   *
+   * block:
+   * - 사용자의 발화에 반응한 {@link ISkillPayload.IBlock} 정보
+   *
+   * utterance:
+   * - 봇 시스템에 전달된 사용자의 발화
+   *
+   * lang:
+   * - 사용자의 언어
+   * - ex) ko
+   *
+   * user:
+   * - 요청을 작성한 {@link ISkillPayload.IUser} 정보
+   */
+  export interface IUserRequest {
+    timezone: string;
+    block: ISkillPayload.IBlock;
+    utterance: string;
+    lang: string;
+    user: ISkillPayload.IUser;
+  }
 }
