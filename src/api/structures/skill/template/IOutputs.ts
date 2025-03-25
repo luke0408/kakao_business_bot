@@ -2,7 +2,10 @@ import { tags } from "typia";
 
 import { IButton } from "./IButton";
 
-export type IOutput = IOutputs.ISimpleText | IOutputs.ISimpleImage;
+export type IOutput =
+  | IOutputs.ISimpleText
+  | IOutputs.ISimpleImage
+  | IOutputs.ITextCard;
 
 export type IOutputs = IOutput[] & tags.MaxItems<3> & tags.MinItems<1>;
 
