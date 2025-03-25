@@ -19,7 +19,7 @@ export namespace IOutputs {
     altText: string & tags.MaxLength<50>;
   }
 
-  export type ITextCard = ITextCard.ITitledCard | ITextCard.IDescripedCard;
+  export type ITextCard = ITextCard.ITitledCard | ITextCard.IDescribedCard;
 
   /**
    * Namespace containing interfaces for text card structures.
@@ -63,7 +63,7 @@ export namespace IOutputs {
     /**
      * Interface for a card with a mandatory description.
      */
-    export interface IDescripedCard extends ICardBase {
+    export interface IDescribedCard extends ICardBase {
       /**
        * The description of the card. It must be a string with a maximum length of 400 characters.
        */
